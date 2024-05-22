@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1043469902888",
+    "firebase_url": "https://delivery-app-flutter-yt-2736b-default-rtdb.firebaseio.com",
+    "project_id": "delivery-app-flutter-yt-2736b",
+    "storage_bucket": "delivery-app-flutter-yt-2736b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043469902888:android:5027dc30144c3e6bba411d",
+        "android_client_info": {
+          "package_name": "com.reyesjonatan.deliveryappflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043469902888-sn25fgaj3olgas65kaji8e2i2ts697up.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reyesjonatan.deliveryappflutter",
+            "certificate_hash": "743dfa03a783e4da82eb70f5f837db2031ccda68"
+          }
+        },
+        {
+          "client_id": "1043469902888-fa0onbqr6e35c33vj4k9eljk6spvf29k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3N2RIsE85ene7MywvBgmT5pHqR2m85QA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043469902888-fa0onbqr6e35c33vj4k9eljk6spvf29k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
