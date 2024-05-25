@@ -5,15 +5,15 @@ import 'package:yes_no_app/src/Base/Constants/ErrorMessages.dart';
 import 'package:yes_no_app/src/features/domain/Entities/Auth/SignUpEntity/SignUpEntity.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/SignUpUseCase/SignUpUseCase.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/SignUpUseCase/SignUpuseCaseParameters.dart';
-import 'package:yes_no_app/src/services/Decodables/AuthErrorDecodable.dart';
+import 'package:yes_no_app/src/services/FirebaseSevices/FirebaseAuthService/Decodables/AuthErrorDecodable.dart';
 import 'package:yes_no_app/src/utils/Helpers/resultType/ResultType.dart';
 
 
 abstract class _Constants {
-  static String correctEmail = "david9@gmail.com";
-  static String correctPass = "1234568";
+  static String correctEmail = "dr607430@gmail.com";
+  static String correctPass = "123456";
   static String wrongEmail = "david9@gmail.com";
-  static String wrongPass = "1234568";
+  static String wrongPass = "12345678";
 }
 
 void main() {
@@ -25,7 +25,7 @@ void main() {
       final SignUpUseCaseParameters params = SignUpUseCaseParameters(
           email: _Constants.correctEmail,
           password: _Constants.correctPass,
-          username: 'Cane 8',
+          username: 'DavidR',
           date: '22/10/1989',
           phone: '123456'
       );

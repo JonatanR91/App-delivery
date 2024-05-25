@@ -1,8 +1,9 @@
 
 
 class DateHelpers {
-  static getstarData(){
-    var _date = DateTime.now();
-    return "${_date.toLocal().day}/${_date.toLocal().month}/${_date.toLocal().year}";
+  static String getStartDate() {
+    var startDate = DateTime.now();
+
+    return "${ startDate.toLocal().day }/${ startDate.toLocal().month }/${ startDate.toLocal().year }";
   }
 }

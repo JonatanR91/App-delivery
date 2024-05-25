@@ -9,7 +9,7 @@ import '../../../Entities/Auth/SignInEntity/SignInEntity.dart';
 import 'SignInUseCaseBodyParameters.dart';
 
 abstract class SignInUseCase {
-Future<Result<SignInEntity, Failure>> execute({required SignInUseCaseBodyParameters params});
+Future<Result<SignInEntity, Failure>> execute({required SignInUseCaseParameters params});
 
 }
 
@@ -23,7 +23,7 @@ Future<Result<SignInEntity, Failure>> execute({required SignInUseCaseBodyParamet
 
 
   @override
-  Future<Result<SignInEntity, Failure>> execute({required SignInUseCaseBodyParameters params}) {
+  Future<Result<SignInEntity, Failure>> execute({required SignInUseCaseParameters params}) {
   
     return _signInRepository.signIn(params: SignInBodyParameters(
         email: params.email,password: params.password)).then((result) {

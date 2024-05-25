@@ -1,6 +1,6 @@
-
 import 'dart:convert';
 
+import '../../../../features/Domain/UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
 class UserEntity {
   UserEntity({
     this.localId,
@@ -13,7 +13,8 @@ class UserEntity {
     this.photo,
     this.shippingAddress,
     this.billingAddress,
-    this.idToken
+    this.idToken,
+    this.provider
   });
 
   String? localId;
@@ -27,39 +28,63 @@ class UserEntity {
   String? shippingAddress;
   String? billingAddress;
   String? idToken;
+  String? provider;
 
   factory UserEntity.fromJson(String str) => UserEntity.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory UserEntity.fromMap(Map<String, dynamic> json) => UserEntity(
-      localId: json["localId"] == null ? null : json["localId"],
-      role: json["role"] == null ? null : json["role"],
-      username: json["username"] == null ? null : json["username"],
-      email: json["email"] == null ? null : json["email"],
-      phone: json["phone"] == null ? null : json["phone"],
-      dateOfBirth: json["dateOfBirth"] == null ? null : json["dateOfBirth"],
-      startDate: json["startDate"] == null ? null : json["startDate"],
-      photo: json["photo"] == null ? null : json["photo"],
-      shippingAddress: json["shippingAddress"] == null ? null : json["shippingAddress"],
-      billingAddress: json["billingAddress"] == null ? null : json["billingAddress"],
-      idToken:
-      json["idToken"] == null ? null : json["idToken"]
+      localId: json["localId"],
+      role: json["role"],
+      username: json["username"],
+      email: json["email"],
+      phone: json["phone"],
+      dateOfBirth: json["dateOfBirth"],
+      startDate: json["startDate"],
+      photo: json["photo"],
+      shippingAddress: json["shippingAddress"],
+      billingAddress: json["billingAddress"],
+      idToken: json["idToken"],
+      provider: json["provider"]
   );
 
   Map<String, dynamic> toMap() => {
-    "localId": localId == null ? null : localId,
-    "role": role == null ? null : role,
-    "username": username == null ? null : username,
-    "email": email == null ? null : email,
-    "phone": phone == null ? null : phone,
-    "dateOfBirth": dateOfBirth == null ? null : dateOfBirth,
-    "startDate": startDate == null ? null : startDate,
-    "photo": photo == null ? null : photo,
-    "shippingAddress": shippingAddress == null ? null : shippingAddress,
-    "billingAddress": billingAddress == null ? null : billingAddress,
+    "localId": localId,
+    "role": role,
+    "username": username,
+    "email": email,
+    "phone": phone,
+    "dateOfBirth": dateOfBirth,
+    "startDate": startDate,
+    "photo": photo,
+    "shippingAddress": shippingAddress,
+    "billingAddress": billingAddress,
     "idToken": billingAddress == null ? null : idToken,
+    "provider": provider
   };
+
+  SaveUserDataUseCaseParameters getSaveUserDataParams() {
+    return SaveUserDataUseCaseParameters(
+        localId: localId,
+      //  role: UserRole.values.byName(role ?? ""),
+        username: username,
+        email: email,
+        phone: phone,
+        dateOfBirth: dateOfBirth,
+        startDate: startDate,
+        photo: photo,
+        shippingAddress: shippingAddress,
+        billingAddress: billingAddress,
+        idToken: idToken,
+        provider: provider
+    );
+  }
+}
+
+class UserAuthProvider {
+  static String google = "Google";
+  static String emailAndPassword = "emailAndPassword";
 }
 
 enum UserRole {
@@ -68,6 +93,6 @@ enum UserRole {
 
 extension ParseToString on UserRole {
   String toShortString() {
-    return this.toString().split('.').last;
+    return toString().split('.').last;
   }
 }

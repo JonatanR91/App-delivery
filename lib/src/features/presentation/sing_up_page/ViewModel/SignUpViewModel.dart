@@ -5,10 +5,10 @@ import 'package:yes_no_app/src/Base/Constants/LocasStorageKeys.dart';
 import 'package:yes_no_app/src/Base/Views/BaseView.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/SignUpUseCase/SignUpUseCase.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/SignUpUseCase/SignUpuseCaseParameters.dart';
-import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/LocalStorageUseCaseParameters.dart';
-import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/SaveLocalStorageUseCase.dart';
+import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/FetchLocalStorage/LocalStorageUseCaseParameters.dart';
+import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/SaveLocalStorage/SaveLocalStorageUseCase.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/TextFormFields/CustomtextFormField.dart';
-import 'package:yes_no_app/src/features/presentation/Stateprovider/LoadingStateProvider.dart';
+import 'package:yes_no_app/src/features/presentation/StateProviders/LoadingStateProvider.dart';
 import 'package:yes_no_app/src/features/presentation/sing_up_page/Model/SignUpModel.dart';
 import 'package:yes_no_app/src/utils/Helpers/resultType/ResultType.dart';
 
@@ -25,7 +25,7 @@ abstract class SignUpViewModel extends SignUpViewModelInput with TextFormFieldDe
 
 class DefaultSignUpViewModel extends SignUpViewModel {
 
-  // Dependencias
+  // Dependencies
   final SignUpUseCase _signUpUseCase;
   final SaveLocalStorageUseCase _saveLocalStorageUseCase;
 
@@ -35,8 +35,8 @@ class DefaultSignUpViewModel extends SignUpViewModel {
         _saveLocalStorageUseCase = saveLocalStorageUseCase ?? DefaultSaveLocalStorageUseCase();
 
   @override
-  void initState({ required LoadingStateProvider loadingStateProvider}) {
-    loadingState = loadingStateProvider;
+  void initState({ required LoadingStateProvider loadingState}) {
+    loadingStatusState = loadingState;
     dateController = TextEditingController();
     selectedDate = DateTime.now();
   }
@@ -48,7 +48,7 @@ class DefaultSignUpViewModel extends SignUpViewModel {
 
   @override
   Future<Result<bool, Failure>> signUp() {
-    loadingState.setLoadingState(isLoading: true);
+    loadingStatusState.setLoadingState(isLoading: true);
 
     return _signUpUseCase.execute(params: SignUpUseCaseParameters(username: signUpModel?.username ?? "",
         email: signUpModel?.email ?? "",
@@ -58,12 +58,12 @@ class DefaultSignUpViewModel extends SignUpViewModel {
         .then( (result) {
       switch (result.status) {
         case ResultStatus.success:
-          _saveLocalStorageUseCase.execute(parameters: SaveLocalStorageParameters(key: LocalStorageKeys.idToken,
+          _saveLocalStorageUseCase.execute(saveLocalParameteres: SaveLocalStorageParameters(key: LocalStorageKeys.idToken,
               value: result.value?.idToken ?? ""));
-          loadingState.setLoadingState(isLoading: false);
+          loadingStatusState.setLoadingState(isLoading: false);
           return Result.success(true);
         case ResultStatus.error:
-          loadingState.setLoadingState(isLoading: false);
+          loadingStatusState.setLoadingState(isLoading: false);
           return Result.failure(result.error);
       }
     });

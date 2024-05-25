@@ -1,7 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/src/features/domain/Entities/Places/PlaceListEntity.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Cards/VerticalCards/RecentSearchVerticalCardView/RecentSearchVerticalCardView.dart';
-
 
 class RecentSearchCarrouselView extends StatelessWidget {
   // Dependencies

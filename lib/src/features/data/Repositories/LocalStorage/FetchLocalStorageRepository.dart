@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yes_no_app/src/Base/Constants/LocasStorageKeys.dart';
 import 'package:yes_no_app/src/features/data/Interfaces/Interfaces.dart';
 
 class DefaultFetchLocalStorageRepository extends FetchLocalStorageRepository {
@@ -11,5 +12,11 @@ class DefaultFetchLocalStorageRepository extends FetchLocalStorageRepository {
 
     final SharedPreferences prefs = await _prefs;
      return prefs.getString(key);
+  }
+
+  @override
+  Future<List<String>?> fetchRecentSearches() async{
+    final SharedPreferences prefs = await _prefs;
+    return prefs.getStringList(LocalStorageKeys.recentSearches);
   }
 }

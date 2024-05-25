@@ -1,15 +1,7 @@
 import 'dart:convert';
 
-class SingUpDecodable {
-  String? kind;
-  String?idToken;
-  String? email;
-  String? refreshToken;
-  String? expiresIn;
-  String? localId;
-
-  SingUpDecodable({
-    this.kind,
+class SignUpDecodable {
+  SignUpDecodable({
     this.idToken,
     this.email,
     this.refreshToken,
@@ -17,12 +9,17 @@ class SingUpDecodable {
     this.localId,
   });
 
-  factory SingUpDecodable.fromJson(String str) => SingUpDecodable.fromMap(json.decode(str));
+  String? idToken;
+  String? email;
+  String? refreshToken;
+  String? expiresIn;
+  String? localId;
+
+  factory SignUpDecodable.fromJson(String str) => SignUpDecodable.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory SingUpDecodable.fromMap(Map<String, dynamic> json) => SingUpDecodable(
-    kind: json["kind"],
+  factory SignUpDecodable.fromMap(Map<String, dynamic> json) => SignUpDecodable(
     idToken: json["idToken"],
     email: json["email"],
     refreshToken: json["refreshToken"],
@@ -31,7 +28,6 @@ class SingUpDecodable {
   );
 
   Map<String, dynamic> toMap() => {
-    "kind": kind,
     "idToken": idToken,
     "email": email,
     "refreshToken": refreshToken,

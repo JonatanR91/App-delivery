@@ -4,9 +4,9 @@ import 'package:yes_no_app/src/colors/colors.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Alerts/alert_dialog/alert_dialog.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Buttons/rounded_button.dart';
 import 'package:yes_no_app/src/features/presentation/StateProviders/LoadingStateProvider.dart';
+import 'package:yes_no_app/src/features/presentation/tabs/ProfileTab/View/ProfileTab.dart';
 import 'package:yes_no_app/src/features/presentation/tabs/explore_tab/View/explore_tab.dart';
 import 'package:yes_no_app/src/features/presentation/tabs/my_order_tab/View/my_order_tab.dart';
-import 'package:yes_no_app/src/features/presentation/tabs/profile_tab/View/profile_tab.dart';
 import 'package:yes_no_app/src/services/GeolocationService/Entities/GeolocationServiceEntities.dart';
 import 'package:yes_no_app/src/utils/Helpers/resultType/ResultType.dart';
 
@@ -48,7 +48,7 @@ class _TabsPageState extends State<TabsPage> with BaseView {
   List<Widget> _widgetOptions = [
      const ExploreTab(),
      const MyorderTab(),
-   //  const FavoiriteTab(),
+  //   const FavoiriteTab(),
     ProfileTab()
   ];
 

@@ -2,7 +2,7 @@
 import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
 import 'package:yes_no_app/src/Base/Views/BaseView.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Geolocation/GeolocationUseCase.dart';
-import 'package:yes_no_app/src/features/presentation/Stateprovider/LoadingStateProvider.dart';
+import 'package:yes_no_app/src/features/presentation/StateProviders/LoadingStateProvider.dart';
 import 'package:yes_no_app/src/services/GeolocationService/Entities/GeolocationServiceEntities.dart';
 import 'package:yes_no_app/src/utils/Helpers/resultType/ResultType.dart';
 

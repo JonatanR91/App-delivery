@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:yes_no_app/src/buttons/button.dart';
 import 'package:yes_no_app/src/colors/colors.dart';
 
@@ -34,7 +34,7 @@ class ErrorAlertView {
                   Container(
                     margin: const EdgeInsets.only(top: 15),
                     child: Text(subTitle,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: accentColor,
                             fontWeight: FontWeight.w400,
                             fontSize: 15.0)),

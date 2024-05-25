@@ -14,4 +14,10 @@ class DefaultSaveLocalStorageRepository extends SaveLocalStorageRepository {
     final SharedPreferences prefs = await _prefs;
     await prefs.setString(key, value);
   }
+
+  @override
+  Future<void> saveRecentSearchInLocalStorage({required String key, required List<String> value}) async {
+    final SharedPreferences prefs = await _prefs;
+    await prefs.setStringList(key, value);
+  }
 }

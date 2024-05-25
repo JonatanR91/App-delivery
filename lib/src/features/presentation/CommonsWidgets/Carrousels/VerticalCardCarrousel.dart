@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/src/features/domain/Entities/Places/PlaceListEntity.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Cards/VerticalCards/NoveltyPlacesVerticalCardView/NoveltyPlacesVerticalCardView.dart';
@@ -11,8 +10,7 @@ class VerticalCardCarrousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      SizedBox(
+    return SizedBox(
         height: 360.0,
         child: ListView.builder(
             itemCount: placeList.length,

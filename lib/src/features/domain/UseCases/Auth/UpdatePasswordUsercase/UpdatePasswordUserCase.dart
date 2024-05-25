@@ -11,7 +11,7 @@ class DefaultUpdatePasswordUseCase extends UpdatePasswordUseCase{
 
   UpdatePasswordRepository _updatePasswordRepository;
 
-  DefaultUpdatePasswordUseCase(UpdatePasswordRepository? updatePasswordRepository)
+  DefaultUpdatePasswordUseCase({UpdatePasswordRepository? updatePasswordRepository})
           : _updatePasswordRepository = updatePasswordRepository ?? DefaultUpdatePasswordRepository();
 
 

@@ -1,35 +1,36 @@
+
 import 'dart:convert';
 
 class AuthErrorDecodable {
-  AuthErrorDecodableError? error;
-
   AuthErrorDecodable({
     this.error,
   });
+
+  AuthErrorDecodableError? error;
 
   factory AuthErrorDecodable.fromJson(String str) => AuthErrorDecodable.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory AuthErrorDecodable.fromMap(Map<String, dynamic> json) => AuthErrorDecodable(
-    error: AuthErrorDecodableError.fromMap(json["error"]),
+    error: json["error"] == null ? null : AuthErrorDecodableError.fromMap(json["error"]),
   );
 
   Map<String, dynamic> toMap() => {
-    "error": error?.toMap(),
+    "error": error == null ? null : error!.toMap(),
   };
 }
 
 class AuthErrorDecodableError {
-  int? code;
-  String? message;
-  List<ErrorElement>? errors;
-
   AuthErrorDecodableError({
     this.code,
     this.message,
     this.errors,
   });
+
+  int? code;
+  String? message;
+  List<ErrorElement>? errors;
 
   factory AuthErrorDecodableError.fromJson(String str) => AuthErrorDecodableError.fromMap(json.decode(str));
 
@@ -38,26 +39,26 @@ class AuthErrorDecodableError {
   factory AuthErrorDecodableError.fromMap(Map<String, dynamic> json) => AuthErrorDecodableError(
     code: json["code"],
     message: json["message"],
-    errors: List<ErrorElement>.from(json["errors"].map((x) => ErrorElement.fromMap(x))),
+    errors: json["errors"] == null ? null : List<ErrorElement>.from(json["errors"].map((x) => ErrorElement.fromMap(x))),
   );
 
   Map<String, dynamic> toMap() => {
     "code": code,
     "message": message,
-    "errors": List<dynamic>.from(errors!.map((x) => x.toMap())),
+    "errors": errors == null ? null : List<dynamic>.from(errors!.map((x) => x.toMap())),
   };
 }
 
 class ErrorElement {
-  String? message;
-  String? domain;
-  String? reason;
-
   ErrorElement({
     this.message,
     this.domain,
     this.reason,
   });
+
+  String? message;
+  String? domain;
+  String? reason;
 
   factory ErrorElement.fromJson(String str) => ErrorElement.fromMap(json.decode(str));
 

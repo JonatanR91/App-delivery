@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 class UserDecodable {
@@ -13,7 +12,8 @@ class UserDecodable {
     this.photo,
     this.shippingAddress,
     this.billingAddress,
-    this.idToken
+    this.idToken,
+    this.provider
   });
 
   String? localId;
@@ -27,6 +27,7 @@ class UserDecodable {
   String? shippingAddress;
   String? billingAddress;
   String? idToken;
+  String? provider;
 
   factory UserDecodable.fromJson(String str) =>
       UserDecodable.fromMap(json.decode(str));
@@ -34,33 +35,34 @@ class UserDecodable {
   String toJson() => json.encode(toMap());
 
   factory UserDecodable.fromMap(Map<String, dynamic> json) => UserDecodable(
-      localId: json["localId"] == null ? null : json["localId"],
-      role: json["role"] == null ? null : json["role"],
-      username: json["username"] == null ? null : json["username"],
-      email: json["email"] == null ? null : json["email"],
-      phone: json["phone"] == null ? null : json["phone"],
-      dateOfBirth: json["dateOfBirth"] == null ? null : json["dateOfBirth"],
-      startDate: json["startDate"] == null ? null : json["startDate"],
-      photo: json["photo"] == null ? null : json["photo"],
+      localId: json["localId"],
+      role: json["role"],
+      username: json["username"],
+      email: json["email"],
+      phone: json["phone"],
+      dateOfBirth: json["dateOfBirth"],
+      startDate: json["startDate"],
+      photo: json["photo"],
       shippingAddress:
-      json["shippingAddress"] == null ? null : json["shippingAddress"],
+      json["shippingAddress"],
       billingAddress:
-      json["billingAddress"] == null ? null : json["billingAddress"],
-      idToken:
-      json["idToken"] == null ? null : json["idToken"]
+      json["billingAddress"],
+      idToken: json["idToken"],
+      provider: json["provider"]
   );
 
   Map<String, dynamic> toMap() => {
-    "localId": localId == null ? null : localId,
-    "role": role == null ? null : role,
-    "username": username == null ? null : username,
-    "email": email == null ? null : email,
-    "phone": phone == null ? null : phone,
-    "dateOfBirth": dateOfBirth == null ? null : dateOfBirth,
-    "startDate": startDate == null ? null : startDate,
-    "photo": photo == null ? null : photo,
-    "shippingAddress": shippingAddress == null ? null : shippingAddress,
-    "billingAddress": billingAddress == null ? null : billingAddress,
-    "idToken": billingAddress == null ? null : idToken
+    "localId": localId,
+    "role": role,
+    "username": username,
+    "email": email,
+    "phone": phone,
+    "dateOfBirth": dateOfBirth,
+    "startDate": startDate,
+    "photo": photo,
+    "shippingAddress": shippingAddress,
+    "billingAddress": billingAddress,
+    "idToken": billingAddress == null ? null : idToken,
+    "provider": provider
   };
 }

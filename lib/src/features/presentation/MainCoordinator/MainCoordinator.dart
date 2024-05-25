@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:yes_no_app/src/Base/Constants/LocasStorageKeys.dart';
 import 'package:yes_no_app/src/features/domain/Entities/Collections/CollectionsEntity.dart';
 import 'package:yes_no_app/src/features/domain/Entities/Places/PlaceListEntity.dart';
-import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/FetchLocalStorageUseCase.dart';
-import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/LocalStorageUseCaseParameters.dart';
+import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/FetchLocalStorage/FetchLocalStorageUseCase.dart';
+import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/FetchLocalStorage/LocalStorageUseCaseParameters.dart';
+import 'package:yes_no_app/src/features/domain/UseCases/LocalStorage/SaveLocalStorage/SaveLocalStorageUseCase.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/User/ValidateCurrentUserUseCase/ValidateCurrentuserUseCase.dart';
 import 'package:yes_no_app/src/features/presentation/Collections/CollectionDetailPage/View/CollectionDetailPage.dart';
 import 'package:yes_no_app/src/features/presentation/Collections/CollectionDetailPage/ViewModel/CollectionDetailPageViewModel.dart';
@@ -22,11 +23,17 @@ class MainCoordinator {
   // Dependencies
   final FetchLocalStorageUseCase _fetchLocalStorageUseCase;
   final ValidateCurrentUserUseCase _validateCurrentUserUseCase;
+  final SaveLocalStorageUseCase _saveLocalStorageUseCase;
+  // Exposed Properties
+  String? userUid;
+  static MainCoordinator? sharedInstance = MainCoordinator();
 
   MainCoordinator ({  FetchLocalStorageUseCase? fetchLocalStorageUseCase,
-                      ValidateCurrentUserUseCase? validateCurrentUserUseCase})
+                      ValidateCurrentUserUseCase? validateCurrentUserUseCase,
+                      SaveLocalStorageUseCase? saveLocalStorageUseCase})
       : _fetchLocalStorageUseCase = fetchLocalStorageUseCase ?? DefaultFetchLocalStorageUseCase(),
-        _validateCurrentUserUseCase =  validateCurrentUserUseCase ?? DefaultValidateCurrentUserUseCase();
+        _validateCurrentUserUseCase =  validateCurrentUserUseCase ?? DefaultValidateCurrentUserUseCase(),
+        _saveLocalStorageUseCase = saveLocalStorageUseCase ?? DefaultSaveLocalStorageUseCase();
  Future<String?> start(){
 return _isUserLogged().then((value){
   return value == null ? RoutesPath.welcomePath : RoutesPath.tabsPath;
@@ -83,11 +90,9 @@ return _isUserLogged().then((value){
                         required PlaceDetailEntity place }) async {
     await _saveLocalStorageUseCase.saveRecentSearchInLocalStorage(
         placeId: place.placeId);
-    Navigator.push(
-        context,
-        PageRouteBuilder(
-            pageBuilder: (_, __, ___) => PlaceDetailPage(
-                viewModel: DefaultPlaceDetailViewModel(place: place)),
-            transitionDuration: const Duration(seconds: 0)));
+    Navigator.push(context,
+        PageRouteBuilder(pageBuilder: (_,__,___) => PlaceDetailPage(),
+            transitionDuration: const Duration(seconds: 0)
+        ));
   }
 }

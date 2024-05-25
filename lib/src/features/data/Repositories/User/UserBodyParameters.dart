@@ -1,6 +1,4 @@
 
-//import 'dart:convert';
-
 class UserBodyParameters {
   UserBodyParameters({
     this.localId,
@@ -13,7 +11,8 @@ class UserBodyParameters {
     this.photo,
     this.shippingAddress,
     this.billingAddress,
-    this.idToken
+    this.idToken,
+    this.provider
   });
 
   String? localId;
@@ -27,19 +26,20 @@ class UserBodyParameters {
   String? shippingAddress;
   String? billingAddress;
   String? idToken;
-
+  String? provider;
 
   Map<String, dynamic> toMap() => {
-    "localId": localId == null ? null : localId,
-    "role": role == null ? null : role,
-    "username": username == null ? null : username,
-    "email": email == null ? null : email,
-    "phone": phone == null ? null : phone,
-    "dateOfBirth": dateOfBirth == null ? null : dateOfBirth,
-    "startDate": startDate == null ? null : startDate,
-    "photo": photo == null ? null : photo,
-    "shippingAddress": shippingAddress == null ? null : shippingAddress,
-    "billingAddress": billingAddress == null ? null : billingAddress,
-    "idToken": billingAddress == null ? null : idToken
+    "localId": localId,
+    "role": role,
+    "username": username,
+    "email": email,
+    "phone": phone,
+    "dateOfBirth": dateOfBirth,
+    "startDate": startDate,
+    "photo": photo,
+    "shippingAddress": shippingAddress,
+    "billingAddress": billingAddress,
+    "idToken": billingAddress == null ? null : idToken,
+    "provider": provider
   };
 }

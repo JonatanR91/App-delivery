@@ -1,8 +1,6 @@
-
 import 'package:yes_no_app/src/features/domain/Entities/Places/PlaceListEntity.dart';
 
-import '../../../../data/Repositories/Places/PlaceListRepository.dart';
-
+import '../../../../data/Repositories/Places/PlaceList/PlaceListRepository.dart';
 
 
 abstract class PlaceListUseCase {
