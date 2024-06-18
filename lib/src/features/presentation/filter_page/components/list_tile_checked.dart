@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yes_no_app/src/colors/colors.dart';
+import 'package:yes_no_app/src/Colors/colors.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Headers/header_text.dart';
 class ListTileCheck extends StatefulWidget {
    final String texto;

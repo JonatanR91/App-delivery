@@ -1,5 +1,5 @@
 
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Views/BaseView.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Geolocation/GeolocationUseCase.dart';
 import 'package:yes_no_app/src/features/presentation/StateProviders/LoadingStateProvider.dart';
@@ -31,6 +31,7 @@ class DefaultTabsViewModel extends TabsViewModel {
 
   @override
   Future<Result<bool, Failure>> getCurrentPosition() async {
+
     return await _geolocationUseCase.getCurrentPosition().then( (result) {
       switch (result.status) {
         case ResultStatus.success:
@@ -41,9 +42,7 @@ class DefaultTabsViewModel extends TabsViewModel {
     });
   }
 
-  @override
-  Future<LocationPermissionStatus> getPermissionStatus() {
-    return _geolocationUseCase.getPermissionStatus();
+  Future<LocationPermissionStatus> getPermissionStatus() async {
+    return await _geolocationUseCase.getPermissionStatus();
   }
 }
-

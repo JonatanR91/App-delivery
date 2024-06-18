@@ -1,4 +1,4 @@
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Geolocation/GeolocationUseCaseParameters.dart';
 import 'package:yes_no_app/src/services/GeolocationService/Entities/GeolocationServiceEntities.dart';
 import 'package:yes_no_app/src/services/GeolocationService/Interfaces/GeolocationServiceInterfaces.dart';

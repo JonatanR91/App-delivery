@@ -1,32 +1,30 @@
+
 import 'dart:convert';
 
-
-
-import '../../services/FirebaseSevices/FirebaseAuthService/Decodables/AuthErrorDecodable.dart';
-import '../Constants/ErrorMessages.dart';
+import 'package:yes_no_app/src/Base/Constants/ErrorMessages.dart';
+import 'package:yes_no_app/src/services/FirebaseSevices/FirebaseAuthService/Decodables/AuthErrorDecodable.dart';
 
 class Failure {
   String? message;
   Map<String,dynamic> error = {};
 
-  @override
-  String toString() => message ?? "Hubo un error inesperado";
-
-  Failure.fromMessage({ String? message }) {
-    this.message = message;
-  }
+  Failure.fromMessage({ this.message });
 
   Failure.fromBody({ required String body }) {
     var jsonData = jsonDecode(body);
-    this.error = jsonData;
+    error = jsonData;
   }
 
+  @override
+  String toString() => message ?? "";
+
+  // TODO: Use this method in auth errors with Firebase
   static Failure getFirebaseAuthErrorMessage({ required Map<String,dynamic> error }) {
     AuthErrorDecodable _errorDecodable = AuthErrorDecodable.fromMap(error);
 
     var message = "";
     _errorDecodable.error?.errors?.forEach( (error) {
-      message = error.message ?? "";
+      message = error.message!;
     });
 
     if(message == "EMAIL_NOT_FOUND") {
@@ -46,3 +44,6 @@ class Failure {
     }
   }
 }
+
+
+

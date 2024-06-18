@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yes_no_app/src/colors/colors.dart';
+import 'package:yes_no_app/src/Colors/colors.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Headers/header_text.dart';
 
 class EmptyOrderView extends StatelessWidget {
@@ -15,7 +15,7 @@ class EmptyOrderView extends StatelessWidget {
         backgroundColor: white,
         title:  headerText(
           texto: 'My Order',
-          color: primaryColor,
+          color: greyColor,
           fontSize: 17,
           fontWeight: FontWeight.w600
         ),

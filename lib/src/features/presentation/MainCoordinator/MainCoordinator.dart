@@ -13,45 +13,48 @@ import 'package:yes_no_app/src/features/presentation/Collections/CollectionsPage
 import 'package:yes_no_app/src/features/presentation/PopularPlacesListPage/PopularPlacesListPage.dart';
 import 'package:yes_no_app/src/features/presentation/place_detail_page/View/place_detail_page.dart';
 
-class RoutesPath{
+class RoutesPaths{
   static String welcomePath = "welcome";
   static String loginPath = "login";
   static String tabsPath = "Tabs";
+  static String editEmailPath = "edit-email";
+
 }
 class MainCoordinator {
 
   // Dependencies
   final FetchLocalStorageUseCase _fetchLocalStorageUseCase;
-  final ValidateCurrentUserUseCase _validateCurrentUserUseCase;
+  final ValidateCurrentUserCase _validateCurrentUserCase;
   final SaveLocalStorageUseCase _saveLocalStorageUseCase;
   // Exposed Properties
   String? userUid;
   static MainCoordinator? sharedInstance = MainCoordinator();
 
   MainCoordinator ({  FetchLocalStorageUseCase? fetchLocalStorageUseCase,
-                      ValidateCurrentUserUseCase? validateCurrentUserUseCase,
+                      ValidateCurrentUserCase? validateCurrentUserCase,
                       SaveLocalStorageUseCase? saveLocalStorageUseCase})
       : _fetchLocalStorageUseCase = fetchLocalStorageUseCase ?? DefaultFetchLocalStorageUseCase(),
-        _validateCurrentUserUseCase =  validateCurrentUserUseCase ?? DefaultValidateCurrentUserUseCase(),
+        _validateCurrentUserCase =  validateCurrentUserCase ?? DefaultValidateCurrentUserCase(),
         _saveLocalStorageUseCase = saveLocalStorageUseCase ?? DefaultSaveLocalStorageUseCase();
  Future<String?> start(){
 return _isUserLogged().then((value){
-  return value == null ? RoutesPath.welcomePath : RoutesPath.tabsPath;
+  return value == null ? RoutesPaths.welcomePath : RoutesPaths.tabsPath;
 });
  }
 
 
  Future<String?> _isUserLogged() async{
-   var idToken = await _fetchLocalStorageUseCase.execute(fetchLocalParameteres: FetchLocalStorageParameters(key:LocalStorageKeys.idToken));
+   var idToken = await _fetchLocalStorageUseCase.execute(fetchLocalParameteres
+       : FetchLocalStorageParameters(key:LocalStorageKeys.idToken));
     print(idToken);
    return idToken;
 
  }
   showTabsPage({ required BuildContext context, int? selectedTab }) {
-    Navigator.pushNamed(context, RoutesPath.tabsPath);
+    Navigator.pushNamed(context, RoutesPaths.tabsPath);
   }
   showLoginPage({required BuildContext context}) {
-    Navigator.pushNamed(context, RoutesPath.loginPath);
+    Navigator.pushNamed(context, RoutesPaths.loginPath);
   }
   showPlaceListPage(
       {required BuildContext context,
@@ -94,5 +97,8 @@ return _isUserLogged().then((value){
         PageRouteBuilder(pageBuilder: (_,__,___) => PlaceDetailPage(),
             transitionDuration: const Duration(seconds: 0)
         ));
+  }
+  showEditEmailPage({required BuildContext context}) {
+    Navigator.pushNamed(context, RoutesPaths.editEmailPath);
   }
 }

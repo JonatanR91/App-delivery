@@ -1,8 +1,4 @@
-
-
-
-
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Constants/ErrorMessages.dart';
 import 'package:yes_no_app/src/features/Domain/UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
 import 'package:yes_no_app/src/features/data/Repositories/Auth/SignUpRepository/SignUpBodyParameters.dart';
@@ -58,7 +54,7 @@ extension on DefaultSignUpUseCase {
     required SignUpEntity entity }) {
     SaveUserDataUseCaseParameters _params = SaveUserDataUseCaseParameters(
         localId: entity.localId,
-      //  role: UserRole.user,
+        //role: UserRole.user,
         username: params.username,
         email: entity.email,
         phone: params.phone,

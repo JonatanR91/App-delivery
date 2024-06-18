@@ -1,6 +1,4 @@
-
-
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Constants/ErrorMessages.dart';
 import 'package:yes_no_app/src/features/data/Decodables/User/UserDecodable.dart';
 import 'package:yes_no_app/src/features/data/Repositories/User/UserBodyParameters.dart';

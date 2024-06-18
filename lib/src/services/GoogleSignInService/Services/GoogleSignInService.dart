@@ -1,8 +1,6 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/services/FirebaseSevices/Interfaces/RealTimeDatabaseService/Interfaces/Services/RealtimeDataBaseService.dart';
 import 'package:yes_no_app/src/services/GoogleSignInService/Entities/GoogleSignInUserEntity.dart';
 import 'package:yes_no_app/src/services/GoogleSignInService/Interfaces/Interfaces.dart';

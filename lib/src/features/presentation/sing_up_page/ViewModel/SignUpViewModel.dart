@@ -1,6 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Constants/LocasStorageKeys.dart';
 import 'package:yes_no_app/src/Base/Views/BaseView.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/SignUpUseCase/SignUpUseCase.dart';

@@ -1,4 +1,4 @@
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/features/data/Decodables/User/UserDecodable.dart';
 import 'package:yes_no_app/src/utils/Helpers/resultType/ResultType.dart';
 import '../../../../services/FirebaseSevices/Interfaces/RealTimeDatabaseService/Interfaces/Services/RealtimeDataBaseService.dart';

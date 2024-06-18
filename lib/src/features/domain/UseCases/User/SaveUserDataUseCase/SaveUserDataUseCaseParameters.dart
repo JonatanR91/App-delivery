@@ -55,7 +55,7 @@ class SaveUserDataUseCaseParameters {
     "photo": photo,
     "shippingAddress": shippingAddress,
     "billingAddress": billingAddress,
-    "idToken": billingAddress == null ? null : idToken,
+    "idToken": idToken == null ? null : idToken,
     "provider": provider
   };
 }

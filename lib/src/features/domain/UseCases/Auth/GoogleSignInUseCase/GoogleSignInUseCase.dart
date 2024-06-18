@@ -1,5 +1,4 @@
-
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Constants/LocasStorageKeys.dart';
 import 'package:yes_no_app/src/features/Domain/Entities/User/UserEntity.dart';
 import 'package:yes_no_app/src/features/Domain/UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
@@ -62,8 +61,8 @@ extension on DefaultGoogleSignInUseCase {
         photo: user.photoURL,
         shippingAddress: '',
         billingAddress: '',
-        idToken: user.idToken
-     //   provider: UserAuthProvider.google
+        idToken: user.idToken,
+        provider: UserAuthProvider.google
     );
 
     return _saveUserDataUseCase.execute(params: _params);
@@ -81,8 +80,8 @@ extension on DefaultGoogleSignInUseCase {
         photo: user.photoURL,
         shippingAddress: '',
         billingAddress: '',
-        idToken: user.refreshToken
-       // provider: UserAuthProvider.google
+        idToken: user.refreshToken,
+        provider: UserAuthProvider.google
     );
   }
 }

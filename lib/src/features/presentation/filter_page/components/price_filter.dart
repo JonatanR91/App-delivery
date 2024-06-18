@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yes_no_app/src/colors/colors.dart';
+import 'package:yes_no_app/src/Colors/colors.dart';
 
 class PrinceFilter extends StatefulWidget {
   const PrinceFilter({super.key});

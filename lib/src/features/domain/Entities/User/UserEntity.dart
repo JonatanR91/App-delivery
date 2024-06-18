@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../../../../features/Domain/UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
+
 class UserEntity {
   UserEntity({
     this.localId,

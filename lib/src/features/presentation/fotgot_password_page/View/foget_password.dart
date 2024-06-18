@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yes_no_app/src/colors/colors.dart';
-import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Alerts/alert_dialog/alert_dialog.dart';
+import 'package:yes_no_app/src/Colors/colors.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Headers/header_text.dart';
-import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Buttons/rounded_button.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/backButtons/back_button.dart';
 import 'package:yes_no_app/src/features/presentation/fotgot_password_page/View/Components/TextFormFieldForgotEmail.dart';
 import 'package:yes_no_app/src/features/presentation/fotgot_password_page/ViewModel/ForgetPasswordViewModel.dart';
@@ -39,7 +37,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             children: [
               headerText(
                   texto: 'Forgot password',
-                  color: primaryColor,
+                  color: black ,
                   fontSize: 30.0),
               Container(
                 padding: const EdgeInsets.all(10.0),
@@ -52,12 +50,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         fontSize: 15.0)),
               ),
               TextFormFieldEmailUpdatePassword(viewModel: viewModel),
-              createButton(
+              /*createButton(
                   context: context,
                   buttonColor: orange,
                   labelButton: 'Send',
                   shape: const StadiumBorder(),
-                  func: () => _ctaButtonTapped(context))
+                  func: () => _ctaButtonTapped(context))*/
             ],
           ),
         ),
@@ -66,7 +64,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   }
 }
 
-
+/*
 extension UserActions on _ForgotPasswordState {
   void _ctaButtonTapped(BuildContext context) {
     viewModel.updatePassword().then( (value) {
@@ -84,5 +82,5 @@ extension UserActions on _ForgotPasswordState {
               }));
     });
   }
-}
+}*/
 

@@ -1,4 +1,4 @@
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Views/BaseView.dart';
 import 'package:yes_no_app/src/features/Domain/Entities/User/UserEntity.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/GoogleSignInUseCase/GoogleSignInUseCase.dart';

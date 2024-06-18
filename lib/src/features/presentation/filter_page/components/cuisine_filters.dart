@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yes_no_app/src/colors/colors.dart';
+import 'package:yes_no_app/src/Colors/colors.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Buttons/rounded_button.dart';
 class CuisinesFilter extends StatefulWidget {
   const CuisinesFilter({super.key});

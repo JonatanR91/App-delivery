@@ -1,4 +1,5 @@
-import '../../../../../Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
+
 import '../../../../../Base/Constants/ErrorMessages.dart';
 import '../../../../../utils/Helpers/resultType/ResultType.dart';
 import '../../../../data/Repositories/User/FetcUserDataRepository.dart';

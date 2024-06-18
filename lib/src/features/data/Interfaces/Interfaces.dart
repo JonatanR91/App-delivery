@@ -1,6 +1,4 @@
-
-// Auth Repositories
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Managers/PlacesManager/Decodables/PlaceListDecodable.dart';
 import 'package:yes_no_app/src/features/data/Decodables/CollectiosDecodable/CollectionsDecodable.dart';
 import 'package:yes_no_app/src/features/data/Decodables/User/UserDecodable.dart';
@@ -25,6 +23,9 @@ abstract class SignUpRepository{
 
 abstract class UpdatePasswordRepository {
   Future<Result<UpdatePasswordDecodable, Failure>> updatePassword({required String email});
+}
+abstract class UpdateEmailRepository {
+  Future<dynamic> updateEmail({ required String oldEmail, required String newEmail, required String password });
 }
 
 abstract class UserAuthDataRepository{

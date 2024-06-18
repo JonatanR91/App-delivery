@@ -1,6 +1,4 @@
-
-
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/features/data/Repositories/Auth/SignUpRepository/SignUpBodyParameters.dart';
 import 'package:yes_no_app/src/services/FirebaseSevices/FirebaseAuthService/Decodables/SignUpDecodable.dart';
 import 'package:yes_no_app/src/services/FirebaseSevices/Interfaces/AuthFirebaseServices.dart';

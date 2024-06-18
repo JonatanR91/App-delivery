@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yes_no_app/src/colors/colors.dart';
+import 'package:yes_no_app/src/Colors/colors.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Buttons/rounded_button.dart';
 import 'package:yes_no_app/src/features/presentation/CommonsWidgets/Headers/header_text.dart';
 import 'package:yes_no_app/src/features/presentation/tabs/my_order_tab/View/components/empy_order_view.dart';
@@ -25,7 +25,7 @@ class _MyorderTabState extends State<MyorderTab> {
         backgroundColor: white,
         title:  headerText(
           texto: 'My Order',
-          color: primaryColor,
+          color: greyColor,
           fontSize: 17,
           fontWeight: FontWeight.w600
         ),

@@ -1,6 +1,6 @@
 
 import 'package:yes_no_app/src/Base/ApiService/ApiService.dart';
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/services/FirebaseSevices/Interfaces/RealTimeDatabaseService/Interfaces/interfaces.dart';
 
 abstract class RealtimeDatabaseExceptions {

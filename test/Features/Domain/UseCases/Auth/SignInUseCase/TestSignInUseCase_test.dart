@@ -1,6 +1,6 @@
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yes_no_app/src/Base/ApiService/AppError.dart';
+import 'package:yes_no_app/src/Base/ApiService/AppError/AppError.dart';
 import 'package:yes_no_app/src/Base/Constants/ErrorMessages.dart';
 import 'package:yes_no_app/src/features/domain/Entities/Auth/SignInEntity/SignInEntity.dart';
 import 'package:yes_no_app/src/features/domain/UseCases/Auth/SignInUseCase/SignInUseCase.dart';
